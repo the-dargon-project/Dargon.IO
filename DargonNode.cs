@@ -11,7 +11,7 @@ namespace Dargon.IO
       private readonly List<IWritableDargonNode> children = new List<IWritableDargonNode>();
       private readonly Dictionary<Type, object> components = new Dictionary<Type, object>(); 
 
-      public DargonNode(string name = null) { this.name = null; }
+      public DargonNode(string name = null) { this.name = name; }
 
       public string Name { get { return name; } set { name = value; } }
 

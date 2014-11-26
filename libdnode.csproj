@@ -36,11 +36,11 @@
   <ItemGroup>
     <Reference Include="libwarty, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\libwarty.proxies-api.0.0.12\lib\net45\libwarty.dll</HintPath>
+      <HintPath>packages\libwarty.proxies-api.0.0.13\lib\net45\libwarty.dll</HintPath>
     </Reference>
     <Reference Include="libwarty.proxies-api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\libwarty.proxies-api.0.0.12\lib\net45\libwarty.proxies-api.dll</HintPath>
+      <HintPath>packages\libwarty.proxies-api.0.0.13\lib\net45\libwarty.proxies-api.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
       <HintPath>packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
@@ -50,7 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DargonNode.cs" />
+    <Compile Include="DargonNodeFactory.cs" />
+    <Compile Include="DargonNodeUtilities.cs" />
+    <Compile Include="Drive\DriveFileNode.cs" />
+    <Compile Include="Drive\DriveNodeFactory.cs" />
+    <Compile Include="Drive\DriveDirectoryNode.cs" />
+    <Compile Include="Drive\IDriveNodeFactory.cs" />
     <Compile Include="Extensions.DargonNode.cs" />
+    <Compile Include="IDargonNodeFactory.cs" />
     <Compile Include="IDataSourceComponent.cs" />
     <Compile Include="IWritableDargonNode.cs" />
     <Compile Include="IReadableDargonNode.cs" />
