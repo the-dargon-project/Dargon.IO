@@ -35,8 +35,8 @@ namespace Dargon.IO
       {
          var breadcrumbs = relativePath.Split(new[] { '\\', '/' }, StringSplitOptions.RemoveEmptyEntries);
          var currentNode = IsDelimiter(relativePath[0]) ? node.GetRoot() : node;
-         for (var i = 0; i < breadcrumbs.Length; i++) {
-            currentNode = currentNode.GetChild(breadcrumbs[i]);
+         for (var i = 0; i < breadcrumbs.Length && currentNode != null; i++) {
+            currentNode = currentNode.GetChildOrNull(breadcrumbs[i]);
          }
          return currentNode;
       }
@@ -44,8 +44,8 @@ namespace Dargon.IO
       {
          var breadcrumbs = relativePath.Split(new[] { '\\', '/' }, StringSplitOptions.RemoveEmptyEntries);
          var currentNode = IsDelimiter(relativePath[0]) ? node.GetRoot() : node;
-         for (var i = 0; i < breadcrumbs.Length; i++) {
-            currentNode = currentNode.GetChild(breadcrumbs[i]);
+         for (var i = 0; i < breadcrumbs.Length && currentNode != null; i++) {
+            currentNode = currentNode.GetChildOrNull(breadcrumbs[i]);
          }
          return currentNode;
       }
@@ -54,8 +54,8 @@ namespace Dargon.IO
       {
          var breadcrumbs = relativePath.Split(new[] { '\\', '/' }, StringSplitOptions.RemoveEmptyEntries);
          var currentNode = IsDelimiter(relativePath[0]) ? node.GetRoot() : node;
-         for (var i = 0; i < breadcrumbs.Length; i++) {
-            currentNode = currentNode.GetChild(breadcrumbs[i]);
+         for (var i = 0; i < breadcrumbs.Length && currentNode != null; i++) {
+            currentNode = currentNode.GetChildOrNull(breadcrumbs[i]);
          }
          return (TNode)currentNode;
       }
