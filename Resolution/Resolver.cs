@@ -51,6 +51,9 @@ namespace Dargon.IO.Resolution
             var current = this.root;
             var breadcrumbIndex = 0; // We sometimes shortcut C:/Path/To/Root to "C:/Path/To/Root" rather than ["C:", "Path", "To", "Root"]
             var rootNameMatcher = new StringBuilder();
+            if (breadcrumbs.Length > 0 && breadcrumbs[0] == "" && root.Name == "") {
+               breadcrumbIndex++;
+            }
             while (breadcrumbIndex < breadcrumbs.Length && rootNameMatcher.Length < root.Name.Length) {
                if (breadcrumbIndex != 0)
                   rootNameMatcher.Append('/');
