@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.22609.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libdnode", "libdnode.csproj", "{D28AF7FA-367C-472C-954D-694319528208}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dargon.IO", "Dargon.IO.csproj", "{D28AF7FA-367C-472C-954D-694319528208}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "libdnode.Tests", "Tests\libdnode.Tests.csproj", "{053EF4F8-8996-4551-80DD-AC430A960C19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dargon.IO.Tests", "Tests\Dargon.IO.Tests.csproj", "{053EF4F8-8996-4551-80DD-AC430A960C19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
