@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dargon.SystemState.Api">
+      <HintPath>packages\Dargon.SystemState.Api.0.1.0\lib\net45\Dargon.SystemState.Api.dll</HintPath>
+    </Reference>
     <Reference Include="ItzWarty.Commons">
       <HintPath>packages\ItzWarty.Commons.0.1.1\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\ItzWarty.Commons.dll</HintPath>
     </Reference>
@@ -63,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resolution\IResolver.cs" />
     <Compile Include="Resolution\Resolver.cs" />
+    <Compile Include="Resolution\ResolverConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

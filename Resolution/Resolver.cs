@@ -10,15 +10,19 @@ using System.Linq;
 namespace Dargon.IO.Resolution
 {
    public class Resolver : IResolver {
-      private static Logger logger = LogManager.GetCurrentClassLogger();
+      private readonly Logger logger = null;
 
       private readonly IReadableDargonNode root;
       private readonly MultiValueDictionary<string, IReadableDargonNode> nodesByNameInsensitive = new MultiValueDictionary<string, IReadableDargonNode>(new CaseInsensitiveStringEqualityComparer());
       private bool initialized = false;
 
-      public Resolver(IReadableDargonNode root)
-      {
+      public Resolver(IReadableDargonNode root) : this(root, null) { }
+
+      public Resolver(IReadableDargonNode root, ResolverConfiguration configuration) {
          this.root = root;
+         if (configuration?.IsLoggingEnabled ?? false) {
+            logger = LogManager.GetCurrentClassLogger();
+         }
       }
 
       private void Initialize()
@@ -46,7 +50,7 @@ namespace Dargon.IO.Resolution
       public IReadOnlyList<IReadableDargonNode> Resolve(string inputPath, string hintPath = null)
       {
          if (hintPath != null) {
-            logger.Info("ATTEMPT RESOLVE HINT " + inputPath);
+            logger?.Info("ATTEMPT RESOLVE HINT " + inputPath);
             var breadcrumbs = hintPath.Split('/', '\\');
             var current = this.root;
             var breadcrumbIndex = 0; // We sometimes shortcut C:/Path/To/Root to "C:/Path/To/Root" rather than ["C:", "Path", "To", "Root"]
@@ -61,16 +65,16 @@ namespace Dargon.IO.Resolution
             }
 
             var rootName = root.Name.Replace('\\', '/');
-            logger.Info("ROOT NAME IS " + rootName + " FIRST HINT IS " + rootNameMatcher);
+            logger?.Info("ROOT NAME IS " + rootName + " FIRST HINT IS " + rootNameMatcher);
             if (rootName.Equals(rootNameMatcher.ToString(), StringComparison.OrdinalIgnoreCase)) {
                while (breadcrumbIndex < breadcrumbs.Length && current != null) {
                   current = current.GetChildOrNull(breadcrumbs[breadcrumbIndex++]);
                }
                if (current != null) {
-                  logger.Info("RESOLVE HINT SUCCESS " + hintPath);
+                  logger?.Info("RESOLVE HINT SUCCESS " + hintPath);
                   return new List<IReadableDargonNode> { current };
                }
-               logger.Info("RESOLVE HINT FAILURE " + hintPath);
+               logger?.Info("RESOLVE HINT FAILURE " + hintPath);
             }
          }
 
