@@ -16,17 +16,9 @@ namespace Dargon.IO.Resolution {
 
       public ResolverConfigurationImpl(SystemState systemState) {
          this.systemState = systemState;
-         this.isLoggingEnabled = GetBoolean(kResolverLoggingEnabledKey, true);
+         this.isLoggingEnabled = systemState.Get(kResolverLoggingEnabledKey, true);
       }
 
       public bool IsLoggingEnabled => isLoggingEnabled;
-
-      private bool GetBoolean(string key, bool defaultValue) {
-         bool result;
-         if (!bool.TryParse(systemState.Get(key, defaultValue.ToString()), out result)) {
-            result = defaultValue;
-         }
-         return result;
-      }
    }
 }
