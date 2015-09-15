@@ -37,6 +37,8 @@
     <Reference Include="Dargon.SystemState.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Dargon.SystemState.Api.0.2.1\lib\net45\Dargon.SystemState.Api.dll</HintPath>
       <Private>True</Private>
+    <Reference Include="Dargon.Ryu.Api">
+      <HintPath>packages\Dargon.Ryu.Api.0.3.1\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\Dargon.Ryu.Api.dll</HintPath>
     </Reference>
     <Reference Include="ItzWarty.Commons">
       <HintPath>packages\ItzWarty.Commons.0.1.1\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\ItzWarty.Commons.dll</HintPath>
@@ -52,21 +54,25 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DargonNode.cs" />
-    <Compile Include="DargonNodeFactory.cs" />
+    <Compile Include="Components\DataStreamComponentFactory.cs" />
+    <Compile Include="DargonNodeFactoryExtensions.cs" />
+    <Compile Include="DargonNodeFactoryExtensionsImpl.cs" />
+    <Compile Include="DargonNodeFactoryExtensionsProxy.cs" />
+    <Compile Include="MutableDargonNodeImpl.cs" />
     <Compile Include="DargonNodeUtilities.cs" />
-    <Compile Include="Drive\DriveFileNode.cs" />
-    <Compile Include="Drive\DriveNodeFactory.cs" />
-    <Compile Include="Drive\DriveDirectoryNode.cs" />
-    <Compile Include="Drive\IDriveNodeFactory.cs" />
-    <Compile Include="Extensions.DargonNode.cs" />
-    <Compile Include="IDargonNodeFactory.cs" />
-    <Compile Include="IDataSourceComponent.cs" />
-    <Compile Include="IWritableDargonNode.cs" />
-    <Compile Include="IReadableDargonNode.cs" />
+    <Compile Include="Drive\DargonNodeFactoryDriveExtensions.cs" />
+    <Compile Include="Drive\DriveTreeImporter.cs" />
+    <Compile Include="Utilities\PathUtilities.cs" />
+    <Compile Include="Components\FileSystemDataStreamComponentImpl.cs" />
+    <Compile Include="DargonNodeExtensions.cs" />
+    <Compile Include="DargonNodeFactory.cs" />
+    <Compile Include="Components\DataStreamComponent.cs" />
+    <Compile Include="Resolution\ResolverFactory.cs" />
+    <Compile Include="WritableDargonNode.cs" />
+    <Compile Include="ReadableDargonNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resolution\IResolver.cs" />
     <Compile Include="Resolution\Resolver.cs" />
+    <Compile Include="Resolution\DefaultResolver.cs" />
     <Compile Include="Resolution\ResolverConfiguration.cs" />
   </ItemGroup>
   <ItemGroup>
