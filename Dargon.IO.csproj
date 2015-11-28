@@ -44,6 +44,10 @@
       <HintPath>..\..\packages\Dargon.SystemState.Api.0.2.1\lib\net45\Dargon.SystemState.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="ItzWarty.Commons, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\ItzWarty.Commons.0.1.1\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\ItzWarty.Commons.dll</HintPath>
@@ -64,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\DataStreamComponentFactory.cs" />
+    <Compile Include="Components\ZlibDataStreamComponent.cs" />
     <Compile Include="DargonNodeFactoryExtensions.cs" />
     <Compile Include="DargonNodeFactoryExtensionsImpl.cs" />
     <Compile Include="DargonNodeFactoryExtensionsProxy.cs" />

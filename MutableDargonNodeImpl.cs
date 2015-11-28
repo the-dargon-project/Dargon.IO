@@ -23,7 +23,7 @@ namespace Dargon.IO {
 
       public void AddComponent<TComponent>(TComponent instance) => componentsByType.Add(typeof(TComponent), instance);
 
-      public T GetComponentOrNull<T>() => (T)componentsByType.GetValueOrDefault(typeof(T));
+      public virtual T GetComponentOrNull<T>() => (T)componentsByType.GetValueOrDefault(typeof(T));
 
       public bool AddChild(WritableDargonNode node) {
          if (childrenByName.ContainsKey(node.Name)) {

@@ -7,7 +7,8 @@ using ItzWarty.IO;
 
 namespace Dargon.IO.Components {
    public interface DataStreamComponentFactory {
-         DataStreamComponent CreateForFile(string path);
+      DataStreamComponent CreateForFile(string path);
+      DataStreamComponent CreateForZlibCompressedFile(string path);
    }
 
    public class DataStreamComponentFactoryImpl : DataStreamComponentFactory {
@@ -19,6 +20,12 @@ namespace Dargon.IO.Components {
 
       public DataStreamComponent CreateForFile(string path) {
          return new FileSystemDataStreamComponentImpl(streamFactory, path);
+      }
+
+      public DataStreamComponent CreateForZlibCompressedFile(string path) {
+         return new ZlibDataStreamComponent(
+            streamFactory,
+            CreateForFile(path));
       }
    }
 }
